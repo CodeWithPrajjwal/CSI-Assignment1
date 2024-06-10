@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+// TODO :-
+// .Create a React form with validation for required fields without using third party libraries,
+// Display error messages, disable submission until fields are filled correctly, and show all the
+// filled details on a new route post-successful submission. Fields required: First Name, Last Name,
+// Username, E-mail, password (show/hide), PhoneNo. (country code ____ number), country (dropdown),
+// city (dropdown), Pan No. & Aadhar No.
 
-function App() {
+import Form from "./components/form/Form";
+import Header from "./components/Header/Header";
+import Success from "./components/Success/Success";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="App">
+              <Header />
+              <Form />
+            </div>
+          }
+        />
+        <Route
+          path="/success"
+          element={
+            <>
+              <Header />
+              <Success />
+            </>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
